@@ -1,0 +1,6 @@
+player = ('messi','iniesta','xavi')
+new_player = ('rakitic','neymar','suarez')
+total_player = (player , new_player)
+print("Total no.  of player is",len(total_player),".")
+print(total_player)
+print ("can access postion",total_player[1][1])
