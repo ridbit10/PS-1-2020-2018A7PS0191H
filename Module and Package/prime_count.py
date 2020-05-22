@@ -5,6 +5,4 @@ def count_primes(n):  #count number of prime a number is divisible by
             c=c+1
             while(n%i==0):
                 n=n/i
-
-
     return c
