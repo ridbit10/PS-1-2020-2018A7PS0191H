@@ -1,7 +1,7 @@
 import sqlite3
 from person import Person
 class Student(Person):
-    def add(self)
+    def add(self):
         try:
             conn = sqlite3.connect('Student.db')
             c=conn.cursor()
