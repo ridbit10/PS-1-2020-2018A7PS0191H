@@ -5,5 +5,4 @@ plt.bar(x,y)
 plt.title("Marks in python")
 plt.xlabel("Student ")
 plt.ylabel("marks")
-
 plt.show()
