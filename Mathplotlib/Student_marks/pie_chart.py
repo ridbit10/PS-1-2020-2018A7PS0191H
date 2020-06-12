@@ -1,49 +1,26 @@
 from matplotlib import pyplot as plt 
 import numpy as np
-x=['Adv','Rid','Ris','Sar','Shiv']
-python=[60,50,70,75,55]
-c=[34,76,12,65,43]
-cpp=[54,100,34,89,90]
-java=[45,78,90,23,54]
-total=[0,0,0,0,0]
-for i in range(0,5,1):
-    total[i]=python[i]+c[i]+cpp[i]+java[i]
+
+students=['Advait','Ridhiman','Rishabh','Sarthak','Shiv']
+marks=[[60,50,70,75,55],[34,36,12,65,43],[54,75,34,89,90],[45,68,90,23,54]]
+subjects=['Python','C','C++','Java']
+
 fig,axs = plt.subplots(2,3)
-#plt.subplot(1,1,1)
-subject=['python','c','c++','java']
-c1=0
-x=[python[c1],c[c1],cpp[c1],java[c1]]
-c1=c1+1
-axs[0,0].pie(x, labels = subject,autopct='%1.2f%%')
-axs[0,0].set_title("Advait marks")
-#axs[0,0].xlabel("Name")
-#axs[0,0].ylabel("Python marks")
-#axs[0,0].subplot(1,1,2)
-x=[python[c1],c[c1],cpp[c1],java[c1]]
-c1=c1+1
-axs[1,0].pie(x, labels = subject,autopct='%1.2f%%')
-axs[1,0].set_title("Ridhiman marks")
-#axs[1,0].xlabel("Name")
-#axs[1,0].ylabel("C marks")
-#axs[0,0].subplot(1,1,3)
-x=[python[c1],c[c1],cpp[c1],java[c1]]
-c1=c1+1
-axs[0,1].pie(x, labels = subject,autopct='%1.2f%%')
-axs[0,1].set_title("Rishabh marks")
-#axs[0,1].xlabel("Name")
-#axs[0,1].ylabel("c++ marks")
-#axs[0,0].subplot(1,1,4)
-x=[python[c1],c[c1],cpp[c1],java[c1]]
-c1=c1+1
-axs[1,1].pie(x, labels = subject,autopct='%1.2f%%')
-axs[1,1].set_title("Sarthak marks")
-#axs[1,1].xlabel("Name")
-#axs[1,1].ylabel("java marks")
-#axs[0,0].subplot(1,1,5)
-x=[python[c1],c[c1],cpp[c1],java[c1]]
-c1=c1+1
-axs[0,2].pie(x, labels = subject,autopct='%1.2f%%')
-axs[0,2].set_title("Shiv/Shankar marks")
-#axs[0,2].xlabel("Name")
-#axs[0,2].ylabel("Total marks")
+
+def display(i):
+    individual_marks=[]
+    for j in range(0,4,1):
+        individual_marks.insert(j,marks[j][i])
+    axs[(i%2),int((i/2))].pie(individual_marks, labels = subjects,autopct='%1.2f%%')
+    students[i]=students[i]+" marks"
+    axs[(i%2),int((i/2))].set_title(students[i])    
+
+for i in range(0,5,1):
+    display(i)
+
+fig.delaxes(axs[1][2])
+
+mng = plt.get_current_fig_manager()
+mng.window.state('zoomed')
+
 plt.show()
